@@ -56,10 +56,9 @@ const useStyles = makeStyles((theme) => ({
 
 function ShippingDialog(props) {
     const classes = useStyles();
-    const { onClose, selectedValue, open, origin, destination, weight, handleMethod, shop } = props;
+    const { onClose, selectedValue, open, origin, destination, weight, shop } = props;
     const [page, setPage] = useState(1);
     const [commitHistory, setCommitHistory] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         fetch(
@@ -80,10 +79,10 @@ function ShippingDialog(props) {
           .then(res => res.json())
           .then(response => {
             setCommitHistory(response.results);
-            setIsLoading(false);
           })
           .catch(error => console.log(error));
-      }, [page]);
+          setPage(1);
+      }, [page, origin, destination, weight]);
 
     const handleClose = () => {
         onClose(selectedValue);

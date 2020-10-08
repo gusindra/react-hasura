@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -88,8 +88,6 @@ const Checkout = ({
     },
 }) => {
     const classes = useStyles();
-    const [activeStep, setActiveStep] = React.useState(1);
-    const [submitForm, setSubmitForm] = useState(false);
     
     const nextPath = () => {
         window.history.back();

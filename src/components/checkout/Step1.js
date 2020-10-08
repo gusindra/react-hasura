@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -58,7 +58,6 @@ const steps = ['Keranjang', 'Pengiriman', 'Pembayaran', 'Selesai'];
 
 function Checkout() {
   const classes = useStyles();
-  const [activeStep, setActiveStep] = useState(0);
 
   return (
     <React.Fragment>
@@ -74,7 +73,7 @@ function Checkout() {
 
       <main className={classes.layout}>
         <div>
-          <Stepper activeStep={activeStep} className={classes.stepper}>
+          <Stepper activeStep='0' className={classes.stepper}>
             {steps.map((label) => (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>

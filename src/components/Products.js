@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
 function Products({ newProducts, shopId }) {
   const [listQuery, setQuery] = useState(ALLPRODUCTS);
 
-  useEffect(()=>{
+  useEffect((shopId)=>{
     if (shopId) {
       setQuery(SHOPPRODUCTS);
     }

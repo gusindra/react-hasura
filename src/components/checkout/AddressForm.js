@@ -53,7 +53,7 @@ class Form extends Component {
   }
 
   componentDidMount(){
-    {this.context.buyer.map(user => {
+    this.context.buyer.map(user => {
       this.setState({name: user.name || ''});
       this.setState({email: user.email || ''});
       this.setState({phone: user.phone || ''});
@@ -62,7 +62,7 @@ class Form extends Component {
       this.setState({city: user.city || ''});
       this.setState({district: user.district || ''});
       this.setState({zip: user.zip || ''});
-    })}
+    })
   }
 
   componentDidUpdate(prevProps, prevState) {

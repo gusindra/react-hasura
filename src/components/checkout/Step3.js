@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -59,8 +59,6 @@ const steps = ['Keranjang', 'Pengiriman', 'Pembayaran', 'Selesai'];
 
 function Checkout() {
     const classes = useStyles();
-    const [activeStep, setActiveStep] = React.useState(2);
-    const [submitForm, setSubmitForm] = useState(false);
     // const [method, setMethod] = uuseContext(contextType);
 
     const nextPath = () => {
@@ -83,7 +81,7 @@ function Checkout() {
 
             <main className={classes.layout}>
                 <div>
-                    <Stepper activeStep={activeStep} className={classes.stepper}>
+                    <Stepper activeStep='2' className={classes.stepper}>
                         {steps.map((label) => (
                             <Step key={label}>
                                 <StepLabel>{label}</StepLabel>

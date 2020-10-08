@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Grid, Typography } from '@material-ui/core';
-import Price from '../Price';
+// import Price from '../Price';
 
 
 export default function BtnShipping({shipping, shop, handleClick}) {
@@ -9,7 +9,7 @@ export default function BtnShipping({shipping, shop, handleClick}) {
         <Grid container className="space__between">
             <Button variant="outlined" color="primary" onClick={handleClick}>
                 {shipping.map((curItem) => {
-                    if(curItem.id==shop){
+                    if(curItem.id===shop){
                         return curItem.service;
                     }
                   }, 'Pilih')}
@@ -27,7 +27,7 @@ export default function BtnShipping({shipping, shop, handleClick}) {
                     }, 1)}
                 ></Price> */}
                 Rp{shipping.map((curItem) => {
-                        if(curItem.id==shop){
+                        if(curItem.id===shop){
                             if(curItem.price<=0){
                                 return 1;
                             }else{

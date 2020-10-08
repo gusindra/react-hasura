@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import Grid from '@material-ui/core/Grid';
-import { IconButton, CardMedia, Container, ListItem, ListItemText, Button } from '@material-ui/core';
+import { IconButton, CardMedia, Container, ListItem, ListItemText } from '@material-ui/core';
 import Shop from '../../context/Shop';
 import { withStyles } from "@material-ui/core/styles";
 import Price from '../Price';
@@ -75,34 +75,34 @@ class Review extends Component {
   }
 
   componentDidMount() {
-    {
+    //{
       this.context.shoppingCart.map(cart => {
         var joined = this.state.shipping;
         joined.push(cart.shipping);
-        this.setState({ shipping: joined })
+        this.setState({ shipping: joined });
       })
-    }
+    //}
   }
 
-  getShipping = (shipping, shop_id, tipe) => {
-    // const shopcart = [...this.state.shipping];
-    // const index = this.state.shipping.findIndex(obj => obj.id === shop);
-    var service = 'Pilih';
-    // console.log('after change', service);
-    console.log(this.state.shipping);
-    // console.log('state change', shop_id);
-    if (tipe == 'service') {
-      shipping.map(shop => {
-        if (shop.id == shop_id) {
-          console.log('service', shop.service);
-          service = shop.service;
-        }
-      })
-      return service;
-    } else {
-      return this.state.serviceFee;
-    }
-  }
+  // getShipping = (shipping, shop_id, tipe) => {
+  //   // const shopcart = [...this.state.shipping];
+  //   // const index = this.state.shipping.findIndex(obj => obj.id === shop);
+  //   var service = 'Pilih';
+  //   // console.log('after change', service);
+  //   console.log(this.state.shipping);
+  //   // console.log('state change', shop_id);
+  //   if (tipe == 'service') {
+  //     shipping.map(shop => {
+  //       if (shop.id == shop_id) {
+  //         console.log('service', shop.service);
+  //         service = shop.service;
+  //       }
+  //     })
+  //     return service;
+  //   } else {
+  //     return this.state.serviceFee;
+  //   }
+  // }
 
   render() {
     const { classes } = this.props;
@@ -221,7 +221,7 @@ class Review extends Component {
 
             </Grid>
 
-            <Grid container className="total__price " container spacing={3}>
+            <Grid container className="total__price " spacing={3}>
               <Grid item xs={6}>
                 <ListItemText primary="Total Belanja" />
               </Grid>

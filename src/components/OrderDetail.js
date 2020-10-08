@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -91,10 +91,6 @@ const Order = ({
     },
 }) => {
     const classes = useStyles();
-
-    const nextPath = () => {
-        window.history.back();
-    };
 
     const { loading, error, data } = useQuery(ORDER_QUERY, { variables: { slug } });
 

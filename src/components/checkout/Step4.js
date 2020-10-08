@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -124,8 +124,6 @@ insert_order_details(objects: {
 function Checkout(){
     let history = useHistory();
     const classes = useStyles();
-    const [activeStep, setActiveStep] = useState(3);
-    const [submitForm, setSubmitForm] = useState(false);
     const [createOrder, {loading, error}] = useMutation(SAVEORDER);
     const [saveCart] = useMutation(SAVEPRODUCT);
 
@@ -136,6 +134,7 @@ function Checkout(){
     const submitOrder = (context) => {
         const today = new Date();
         const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        const dateFormat = today.getFullYear()+''+(today.getMonth()+1)+''+today.getDate();
 
         //DATA BUYER
         const address = 'Jalan';
@@ -150,9 +149,10 @@ function Checkout(){
         const shop = 1;
         const discount = 0;
         const tax = 0;
-        const shipment = 0;
+        const shipment = 'JNE';
         const shipping_charges = 0;
         const total = 0;
+        const order_code = 'INV'+dateFormat;
 
         createOrder({ variables: { 
             account_id: shop, 
@@ -163,15 +163,15 @@ function Checkout(){
             email: email, 
             name: name, 
             notes: notes, 
-            order_code: 'INV123321', 
+            order_code: order_code, 
             order_date: date, 
             phone: phone, 
             receipt_number: '', 
-            shipment: 'JNE', 
-            shipping_charges: 1000, 
+            shipment: shipment, 
+            shipping_charges: shipping_charges, 
             status: 0, 
-            tax: 0, 
-            total: 20000
+            tax: tax, 
+            total: total
         } })
         .then((order) => {
             context.shoppingCart.map(product => {
@@ -181,7 +181,7 @@ function Checkout(){
                         product_id: item.id, 
                         product_variants_id: 0, 
                         quantity: item.quantity, 
-                        unit_price: item.unit_price
+                        unit_price: parseFloat(item.price)
                     }});
                 })
             });
@@ -208,7 +208,7 @@ function Checkout(){
 
             <main className={classes.layout}>
                 <div>
-                    <Stepper activeStep={activeStep} className={classes.stepper}>
+                    <Stepper activeStep='3' className={classes.stepper}>
                         {steps.map((label) => (
                             <Step key={label}>
                                 <StepLabel>{label}</StepLabel>

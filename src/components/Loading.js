@@ -3,7 +3,7 @@ import Skeleton from '@yisheng90/react-loading';
 import Grid from '@material-ui/core/Grid';
 
 export default function CustomLoadingOverlayGrid({type}) {
-  if(type=='product'){
+  if(type==='product'){
     return (
         <React.Fragment>
           <Grid item xs={6} sm={6} md={4}>
@@ -14,7 +14,7 @@ export default function CustomLoadingOverlayGrid({type}) {
           </Grid>
         </React.Fragment>
     );
-  }else if(type=='input'){
+  }else if(type==='input'){
     return (
       <React.Fragment>
           <Skeleton translucent height={50} width="100%" color="pink" ></Skeleton>

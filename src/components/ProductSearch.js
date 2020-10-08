@@ -38,7 +38,7 @@ function ProductSearch({ defaultProduct }) {
   const classes = useStyles();
   const [listProduct, setListProduct] = useState(null);
 
-  useEffect(()=>{
+  useEffect((defaultProduct)=>{
     const unsubscribe = () => {
       if(defaultProduct){
         setListProduct(defaultProduct.products);
