@@ -5,9 +5,139 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: .75rem;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+footer{
+  position: sticky;
+}
+
+.search__form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header_nav{
+  display: flex;
+  justify-content: flex-start !important;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  border-bottom:1px solid lightgray;
+  padding-left: 5px;
+  object-fit: contain;
+  height: 60px;
+}
+
+.app__headerImage {
+  object-fit: contain;
+}
+
+.post__image {
+  object-fit: contain;
+  width: 100%;
+}
+
+footer {
+  position: sticky;
+  bottom: 0;
+}
+
+.footer__product {
+  border-top: lightgray 1px solid;
+  background: #ddd;
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+}
+
+footer.footer__product > button, footer.footer__product > a{
+  text-transform: capitalize;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 0;
+}
+
+.icon__button{
+  width: 50% !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+.app__signup {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.MuiStep-horizontal {
+  padding-left: 0px !important;
+}
+
+.MuiTypography-body2{
+  font-size: 10px !important;
+}
+
+.thumb__image{
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 10px;
+}
+
+.remove__button{
+  margin: 10px;
+}
+
+.input__qty{
+  width: 30px;
+  text-align: center !important;
+  font-size: 12px;
+}
+
+.cart__item{
+  justify-content: space-between !important;
+  border-top: solid 1px #bfbfbf4a;
+}
+
+.total__price{
+  bottom: 60px;
+  position: fixed;
+}
+
+.table__product{
+  border-bottom: solid 1px lightgray;
+  margin-bottom: 20px !important;
+}
+
+.button__qty{
+  display: flex;
+  justify-content: space-between;
+}
+
+.button__remove{
+  padding: 6px !important;
+}
+
+.select__input{
+  width: 100%;
+}
+
+.subtitle__checkout{
+  line-height: 3;
+}
+
+.space__between{
+  justify-content: space-between !important;
 }
